@@ -74,7 +74,7 @@ def register_user():
     student = Students.from_mongo_by_email(session['email'])
 
     if a == 1:
-        return render_template("profile.html", email=session['email'], student=student)
+        return render_template('profile.html', email=session['email'], student=student)
     elif a == 0:
         return "You are already registered, please log in"
     elif a == 100:
@@ -84,7 +84,13 @@ def register_user():
 @app.route('/student_details/<string:_id>', methods=['GET'])
 def show_details_for_new_students(_id):
     student = Students.from_mongo_by_id(_id=_id)
-    return render_template("student_data.html", email=session['email'], student=student)
+    return render_template('student_data.html', email=session['email'], student=student)
+
+# routes for the admin
+
+@app.route('/admin/login')
+def admin_login_page()
+    return render_template('admin_login_page.html')
 
 
 if __name__ == "__main__":

@@ -3,7 +3,8 @@ import uuid
 
 from src.common.database import Database
 from src.models.student_data import Students
-from src.models.user import User
+from src.models.admin import Admin
+# from src.models.user import User
 from flask import Flask, render_template, request, session, make_response
 
 __author__ = "abhishekmadhu"
@@ -86,11 +87,31 @@ def show_details_for_new_students(_id):
     student = Students.from_mongo_by_id(_id=_id)
     return render_template('student_data.html', email=session['email'], student=student)
 
+
 # routes for the admin
 
 @app.route('/admin/login')
-def admin_login_page()
+def admin_login_page():
     return render_template('admin_login_page.html')
+
+
+@app.route('/admin/auth/login', methods=['POST'])
+def login_admin():
+    email = request.form['email']
+    password = request.form['password']
+
+    if Admin.is_login_valid(email, password):  # is True
+        Admin.login(email)
+        session['email'] = email
+    else:
+        session['email'] = "no email"
+        return "ADMIN NOT FOUND, PLEASE CHECK YOUR CREDENTIALS, OR CONTACT SERVER ADMINISTRATOR"
+
+    collection = 'students'
+    students = Database.find(collection='students', query={})
+    # return "HELLO"
+    return render_template("overview_page.html", email=session['email'], students=students)
+    # return session['email']
 
 
 if __name__ == "__main__":

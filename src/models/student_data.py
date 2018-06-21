@@ -50,6 +50,12 @@ class Students(object):
             return cls(**data)
         return None
 
+    @classmethod
+    def all_from_mongo(cls):
+        data = Database.find(collection='students',
+                             query={})
+        return cls(**data)
+
     # this is equivalent to the following --
     # return cls(
     #                    institute=student_data['institute'],
@@ -66,7 +72,7 @@ class Students(object):
         # User.is_login_valid("abhishekmadhu.uem@gmail.com", "1234")
         student = Students.from_mongo_by_email(email=email)
         if student is not None:
-            return student.password  # == password
+            return student.password == password
         return False
 
     @classmethod

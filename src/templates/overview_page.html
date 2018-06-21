@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
 
-</body>
-</html>
+    <div class="container">
+        <h1 class="">
+            Hello <span>{{ email }}</span>
+            <small class="text-muted"> These are the registered students...</small>
+        </h1>
+    </div>
+
+    <div class="container">
+        {% for student in students %}
+        <h3><a href="/student_details/{{ student._id }}">{{ student.student_name }}</a> </h3>
+            <p>{{ student.institute }}</p>
+            <p>{{ student.course }}</p>
+            <hr>
+        {% endfor%}
+        <small>End of student list.</small>
+</div>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="container">
+        <h1 class="">
+            Hello <span>{{ student.student_name }}</span>
+            <small class="text-muted"> Welcome to the community...</small>
+        </h1>
+        <a href="/student_details/{{ student._id }}"><button class="btn btn-primary">Go to Student Profile</button></a>
+    </div>
+
+{% endblock %}

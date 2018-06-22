@@ -62,10 +62,12 @@ def register_user():
     student_name = request.form['student_name']
     course = request.form['course']
     created_date = datetime.datetime.utcnow()
+    approval_status = "Pending"
     _id = uuid.uuid4().hex
 
     a = Students.register(email=email, password=password, institute=institute, guardian_name=guardian_name,
-                          student_name=student_name, created_date=created_date, _id=_id, course=course)
+                          student_name=student_name, created_date=created_date, approval_status=approval_status,
+                          _id=_id, course=course)
 
     # #########remove block if does not work
     # also return render_template("profile.html", email=session['email'])
@@ -82,13 +84,13 @@ def register_user():
         return "Server is unresponsive, contact (+91)7063375758 immediately."
 
 
-@app.route('/student_details/<string:_id>', methods=['GET'])
+@app.route('/my_details/<string:_id>', methods=['GET'])  # ######################
 def show_details_for_new_students(_id):
     student = Students.from_mongo_by_id(_id=_id)
     return render_template('student_data.html', email=session['email'], student=student)
 
 
-# routes for the admin
+# ####################################  routes for the admin
 
 @app.route('/admin/login')
 def admin_login_page():
@@ -112,6 +114,20 @@ def login_admin():
     # return "HELLO"
     return render_template("overview_page.html", email=session['email'], students=students)
     # return session['email']
+
+
+@app.route('/student_details/<string:_id>', methods=['GET'])  # ########################
+def show_details_for_student(_id):
+    student = Students.from_mongo_by_id(_id=_id)
+    return render_template('data_for_registered_candidates.html', email=session['email'], student=student)
+
+
+# ###############################################################
+@app.route('/admin/overview/details/approval/<string:_id>', methods=['POST', 'GET'])
+def approve_candidate_status(_id):
+    Database.update_status_to_selected_by_id(collection='students', _id=_id)
+    student = Students.from_mongo_by_id(_id=_id)
+    return render_template('student_data.html', email=session['email'], student=student)
 
 
 if __name__ == "__main__":

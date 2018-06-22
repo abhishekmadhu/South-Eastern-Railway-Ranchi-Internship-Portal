@@ -4,17 +4,30 @@
     <div class="container">
         <h1 class="">
             Hello <span>{{ email }}</span>
-            <small class="text-muted"> These are the registered students...</small>
+            <p><small class="text-muted"> These are the registered students...</small></p>
         </h1>
     </div>
 
     <div class="container">
-        {% for student in students %}
-        <h3><a href="/student_details/{{ student._id }}">{{ student.student_name }}</a> </h3>
-            <p>{{ student.institute }}</p>
-            <p>{{ student.course }}</p>
-            <hr>
-        {% endfor%}
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Institute</th>
+                  <th scope="col">Course</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for student in students %}
+                <tr>
+                    <td><a href="/student_details/{{ student._id }}">{{ student.student_name }}</a></td>
+                    <td>{{ student.institute }}</td>
+                    <td>{{ student.course }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
         <small>End of student list.</small>
 </div>
 

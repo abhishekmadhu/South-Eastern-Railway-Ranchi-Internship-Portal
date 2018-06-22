@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
+
+<!-- this page is displayed to the student while showing his data -->
+
     <div class="container">
         <p>Name : {{ student.student_name }}</p>
         <p>Registered Email : {{ student.email }}</p>
@@ -7,6 +10,7 @@
         <p>Institute : {{ student.institute }}</p>
         <p>Course : {{ student.course }}</p>
         <p>Date of Registration : {{ student.created_date }}</p>
+        <p>APPROVAL STATUS : {{ student.approval_status }}</p>
     </div>
 
 {% endblock %}

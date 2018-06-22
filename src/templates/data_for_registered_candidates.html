@@ -1,9 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
-    <p>Name : {{ student.name }}</p>
-    <p>Guardian's Name : {{ student.guardian_name }}</p>
-    <p>Name : {{ student.name }}</p>
-    <p>Name : {{ student.name }}</p>
-    <p>Name : {{ student.name }}</p>
+
+<!-- this page is displayed to the admin while showing the data of
+        individual students -->
+
+    <div class="container">
+        <p>Name : {{ student.student_name }}</p>
+        <p>Registered Email : {{ student.email }}</p>
+        <p>Guardian's Name : {{ student.guardian_name }}</p>
+        <p>Institute : {{ student.institute }}</p>
+        <p>Course : {{ student.course }}</p>
+        <p>Date of Registration : {{ student.created_date }}</p>
+        <p>APPROVAL STATUS : {{ student.approval_status }}</p>
+
+        <a href="/admin/overview/details/approval/{{ student._id }}"><button class="btn btn-primary">APPROVE</button></a>
+    </div>
 
 {% endblock %}

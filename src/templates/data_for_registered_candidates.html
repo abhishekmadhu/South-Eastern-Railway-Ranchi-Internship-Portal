@@ -13,7 +13,9 @@
         <p>Date of Registration : {{ student.created_date }}</p>
         <p>APPROVAL STATUS : {{ student.approval_status }}</p>
 
+        {% if student.approval_status == "Pending" %}
         <a href="/admin/overview/details/approval/{{ student._id }}"><button class="btn btn-primary">APPROVE</button></a>
+        {% endif %}
     </div>
 
 {% endblock %}

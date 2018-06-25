@@ -91,6 +91,7 @@ def show_details_for_new_students(_id):
 
 
 # ####################################  routes for the admin
+# This comment is really unnecessary
 
 @app.route('/admin/login')
 def admin_login_page():

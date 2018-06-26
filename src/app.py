@@ -82,6 +82,7 @@ def register_user():
         return "You are already registered, please log in"
     elif a == 100:
         return "Server is unresponsive, contact (+91)7063375758 immediately."
+        #funny or vnot funny? :/
 
 
 @app.route('/my_details/<string:_id>', methods=['GET'])  # ######################

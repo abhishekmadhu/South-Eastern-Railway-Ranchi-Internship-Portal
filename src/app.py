@@ -1,16 +1,20 @@
 import datetime
+import os
 import uuid
 
+from datetime import timezone
 from src.common.database import Database
 from src.models.student_data import Students
 from src.models.admin import Admin
 # from src.models.user import User
-from flask import Flask, render_template, request, session, make_response
+from flask import Flask, render_template, request, session, make_response, send_from_directory
 
 __author__ = "abhishekmadhu"
 
 app = Flask(__name__)  # '__main__'
 app.secret_key = "abhi"
+
+APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 
 @app.route('/')  # www.myweb.com/api/login
@@ -49,7 +53,13 @@ def login_user():                               # Refactoring DONE
 
     student = Students.from_mongo_by_email(email=email)
 
-    return render_template("student_data.html", email=session['email'], student=student)
+    id = student._id
+    print(id)
+
+    filename = id + ".jpg"
+    print(filename)
+
+    return render_template("student_data.html", email=session['email'], student=student, image_name=filename)
     # return session['email']
 
 
@@ -77,22 +87,21 @@ def register_user():
     student = Students.from_mongo_by_email(session['email'])
 
     if a == 1:
-        return render_template('profile.html', email=session['email'], student=student)
+        return render_template('upload.html', email=session['email'], student=student)
     elif a == 0:
         return "You are already registered, please log in"
     elif a == 100:
         return "Server is unresponsive, contact (+91)7063375758 immediately."
-        #funny or vnot funny? :/
 
 
 @app.route('/my_details/<string:_id>', methods=['GET'])  # ######################
 def show_details_for_new_students(_id):
     student = Students.from_mongo_by_id(_id=_id)
+
     return render_template('student_data.html', email=session['email'], student=student)
 
 
 # ####################################  routes for the admin
-# This comment is really unnecessary
 
 @app.route('/admin/login')
 def admin_login_page():
@@ -121,7 +130,11 @@ def login_admin():
 @app.route('/student_details/<string:_id>', methods=['GET'])  # ########################
 def show_details_for_student(_id):
     student = Students.from_mongo_by_id(_id=_id)
-    return render_template('data_for_registered_candidates.html', email=session['email'], student=student)
+    filename = _id + ".jpg"
+
+    return render_template('data_for_registered_candidates.html',
+                           email=session['email'], student=student,
+                           image_name=filename)
 
 
 # ###############################################################
@@ -132,5 +145,45 @@ def approve_candidate_status(_id):
     return render_template('student_data.html', email=session['email'], student=student)
 
 
+# ###############################################################
+# route to add images via the web page
+#   This route takes the image, and puts it in a
+#   folder named /images in the src/
+#   This can be latter used to render the picture of the candidate
+#   in a web form, if the order is maintained
+#       ie: if all images are stored with the id of the candidate.
+@app.route('/register/add-image')
+def add_image():
+    return render_template('upload.html')
+
+
+@app.route('/upload', methods=['POST', 'GET'])
+def upload():
+    target = os.path.join(APP_ROOT, 'images/')
+    print(target)
+
+    email = session['email']
+    student = Students.from_mongo_by_email(email=email)
+    id = student._id
+    print(id)
+
+    if not os.path.isdir(target):
+        os.mkdir(target)
+
+    for file in request.files.getlist("file"):
+        print(file)
+        filename = id + ".jpg"
+        destination = "/".join([target, filename])
+        print(destination)
+        file.save(destination)
+    return render_template("student_data.html", student=student, image_name=filename)
+
+
+@app.route('/upload/<filename>')
+def send_image(filename):
+    return send_from_directory("images", filename)
+
+
+# running the app if it is called by itself
 if __name__ == "__main__":
     app.run(debug=True)

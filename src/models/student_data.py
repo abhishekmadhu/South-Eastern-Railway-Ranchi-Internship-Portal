@@ -10,7 +10,7 @@ __author__ = "abhishekmadhu"
 
 class Students(object):
     def __init__(self, email, password, institute, guardian_name, student_name, course,
-                 created_date, approval_status=None, _id=None):
+                 created_date, dos, approval_status=None, _id=None):
         self.email = email
         self.password = password
         self.institute = institute
@@ -19,6 +19,7 @@ class Students(object):
         self.course = course
         self._id = _id
         self.created_date = created_date
+        self.dos = dos
         self.approval_status = "PENDING" if approval_status is None else approval_status
 
     def save_to_mongo(self):
@@ -33,6 +34,7 @@ class Students(object):
             'guardian_name': self.guardian_name,
             'institute': self.institute,
             'created_date': self.created_date,
+            'dos': self.dos,
             'course': self.course,
             'approval_status': self.approval_status
         }
@@ -79,14 +81,14 @@ class Students(object):
 
     @classmethod
     def register(cls, email, password, institute, guardian_name, student_name,
-                 course, created_date, approval_status, _id):
+                 course, created_date, dos, approval_status, _id):
 
         student = cls.from_mongo_by_email(email)
 
         if student is None:
             # student does not exist
             new_student = cls(email, password, institute, guardian_name, student_name,
-                              course, created_date, approval_status, _id)
+                              course, created_date, dos, approval_status, _id)
             new_student.save_to_mongo()
             session['email'] = email
             return 1

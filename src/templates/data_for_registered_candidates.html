@@ -4,14 +4,93 @@
 <!-- this page is displayed to the admin while showing the data of
         individual students -->
 
-    <div class="container">
-        <p>Name : {{ student.student_name }}</p>
-        <p>Registered Email : {{ student.email }}</p>
-        <p>Guardian's Name : {{ student.guardian_name }}</p>
-        <p>Institute : {{ student.institute }}</p>
-        <p>Course : {{ student.course }}</p>
-        <p>Date of Registration : {{ student.created_date }}</p>
-        <p>APPROVAL STATUS : {{ student.approval_status }}</p>
+        <div class="container">
+
+        <img src="{{ url_for('send_image', filename=image_name) }}" alt="Student-Image" class="profile-image">
+
+        <table class="table">
+            <thead>
+                <th>Key</th>
+                <th>Value</th>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>
+                        Name
+                    </td>
+                    <td>
+                        {{ student.student_name }}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Email
+                    </td>
+                    <td>
+                        {{ student.email }}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Guardian's Name
+                    </td>
+                    <td>
+                        {{ student.guardian_name }}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Institute
+                    </td>
+                    <td>
+                        {{ student.institute }}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Course
+                    </td>
+                    <td>
+                        {{ student.course }}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Registration Date
+                    </td>
+                    <td>
+                        {{ student.created_date }}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Starting Date
+                    </td>
+                    <td>
+                        {{ student.dos }}
+                    </td>
+                </tr>
+
+                <tr>
+
+                    <td>
+                        Approval Status
+                    </td>
+                    <td>
+                        {{ student.approval_status }}
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
 
         {% if student.approval_status == "Pending" %}
         <a href="/admin/overview/details/approval/{{ student._id }}"><button class="btn btn-primary">APPROVE</button></a>

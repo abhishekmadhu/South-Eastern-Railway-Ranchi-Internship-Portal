@@ -72,11 +72,13 @@ def register_user():
     student_name = request.form['student_name']
     course = request.form['course']
     created_date = datetime.datetime.utcnow()
+    dos = request.form['dos']
     approval_status = "Pending"
     _id = uuid.uuid4().hex
 
     a = Students.register(email=email, password=password, institute=institute, guardian_name=guardian_name,
-                          student_name=student_name, created_date=created_date, approval_status=approval_status,
+                          student_name=student_name, created_date=created_date, dos=dos,
+                          approval_status=approval_status,
                           _id=_id, course=course)
 
     # #########remove block if does not work

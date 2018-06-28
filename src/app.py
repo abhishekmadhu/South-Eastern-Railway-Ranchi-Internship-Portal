@@ -111,7 +111,7 @@ def admin_login_page():
 
 
 @app.route('/admin/auth/login', methods=['POST'])
-def login_admin():
+def login_admin(): # renders the overview page
     email = request.form['email']
     password = request.form['password']
 
@@ -124,6 +124,39 @@ def login_admin():
 
     collection = 'students'
     students = Database.find(collection='students', query={})
+    # return "HELLO"
+    return render_template("overview_page.html", email=session['email'], students=students)
+    # return session['email']
+
+
+@app.route('/admin/auth/login/pending', methods=['GET'])
+def overview_pending():
+
+    collection = 'students'
+    students = Database.find(collection='students',
+                             query={'approval_status': 'Pending'})
+    # return "HELLO"
+    return render_template("overview_page.html", email=session['email'], students=students)
+    # return session['email']
+
+
+@app.route('/admin/auth/login/approved', methods=['GET'])
+def overview_approved():
+
+    collection = 'students'
+    students = Database.find(collection='students',
+                             query={'approval_status': 'Approved'})
+    # return "HELLO"
+    return render_template("overview_page.html", email=session['email'], students=students)
+    # return session['email']
+
+
+@app.route('/admin/auth/login/all', methods=['GET'])
+def overview_all():
+
+    collection = 'students'
+    students = Database.find(collection='students',
+                             query={})
     # return "HELLO"
     return render_template("overview_page.html", email=session['email'], students=students)
     # return session['email']

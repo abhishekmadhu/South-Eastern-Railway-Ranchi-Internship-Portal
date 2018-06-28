@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
     <div id="top-filter-buttons" style="float:right;padding-right:13%;padding-top:3%">
-        <a href=""><button class="btn btn-primary">Show Only Pending</button></a>
-        <a href=""><button class="btn btn-primary">Show Accepted</button></a>
-        <a href=""><button class="btn btn-primary">Show All</button></a>
+        <a href="{{ url_for('overview_pending') }}"><button class="btn btn-primary">Show Only Pending</button></a>
+        <a href="{{ url_for('overview_approved') }}"><button class="btn btn-primary">Show Accepted</button></a>
+        <a href="{{ url_for('overview_all') }}"><button class="btn btn-primary">Show All</button></a>
     </div>
 
     <div class="container">

@@ -6,8 +6,10 @@
 
         <div class="container">
 
-        <img src="{{ url_for('send_image', filename=image_name) }}" alt="Student-Image" class="profile-image"
+        <div style="float:right;">
+            <img src="{{ url_for('send_image', filename=image_name) }}" alt="Student-Image" class="profile-image"
         style="max-height:150px;max-width:150px">
+        </div>
 
         <table class="table">
             <thead>

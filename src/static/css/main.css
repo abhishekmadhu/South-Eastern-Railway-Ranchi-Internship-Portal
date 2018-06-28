@@ -4,3 +4,7 @@
 body {
     margin-top: 60px;
 }
+
+#top-filter-buttons{
+    float: right;
+}

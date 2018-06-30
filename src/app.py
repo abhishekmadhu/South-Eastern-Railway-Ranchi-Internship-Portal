@@ -122,17 +122,19 @@ def login_admin(): # renders the overview page
         session['email'] = "no email"
         return "ADMIN NOT FOUND, PLEASE CHECK YOUR CREDENTIALS, OR CONTACT SERVER ADMINISTRATOR"
 
-    collection = 'students'
+    # collection = 'students'
     students = Database.find(collection='students', query={})
     # return "HELLO"
     return render_template("overview_page.html", email=session['email'], students=students)
     # return session['email']
 
 
+# filter functions
+# #########################################################
 @app.route('/admin/auth/login/pending', methods=['GET'])
 def overview_pending():
 
-    collection = 'students'
+    # collection = 'students'
     students = Database.find(collection='students',
                              query={'approval_status': 'Pending'})
     # return "HELLO"
@@ -143,7 +145,7 @@ def overview_pending():
 @app.route('/admin/auth/login/approved', methods=['GET'])
 def overview_approved():
 
-    collection = 'students'
+    # collection = 'students'
     students = Database.find(collection='students',
                              query={'approval_status': 'Approved'})
     # return "HELLO"
@@ -154,7 +156,7 @@ def overview_approved():
 @app.route('/admin/auth/login/all', methods=['GET'])
 def overview_all():
 
-    collection = 'students'
+    # collection = 'students'
     students = Database.find(collection='students',
                              query={})
     # return "HELLO"

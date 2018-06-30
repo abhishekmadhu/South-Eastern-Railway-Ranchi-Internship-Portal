@@ -72,11 +72,13 @@ def register_user():
     student_name = request.form['student_name']
     course = request.form['course']
     created_date = datetime.datetime.utcnow()
+    dos = request.form['dos']
     approval_status = "Pending"
     _id = uuid.uuid4().hex
 
     a = Students.register(email=email, password=password, institute=institute, guardian_name=guardian_name,
-                          student_name=student_name, created_date=created_date, approval_status=approval_status,
+                          student_name=student_name, created_date=created_date, dos=dos,
+                          approval_status=approval_status,
                           _id=_id, course=course)
 
     # #########remove block if does not work
@@ -109,7 +111,7 @@ def admin_login_page():
 
 
 @app.route('/admin/auth/login', methods=['POST'])
-def login_admin():
+def login_admin(): # renders the overview page
     email = request.form['email']
     password = request.form['password']
 
@@ -120,8 +122,43 @@ def login_admin():
         session['email'] = "no email"
         return "ADMIN NOT FOUND, PLEASE CHECK YOUR CREDENTIALS, OR CONTACT SERVER ADMINISTRATOR"
 
-    collection = 'students'
+    # collection = 'students'
     students = Database.find(collection='students', query={})
+    # return "HELLO"
+    return render_template("overview_page.html", email=session['email'], students=students)
+    # return session['email']
+
+
+# filter functions
+# #########################################################
+@app.route('/admin/auth/login/pending', methods=['GET'])
+def overview_pending():
+
+    # collection = 'students'
+    students = Database.find(collection='students',
+                             query={'approval_status': 'Pending'})
+    # return "HELLO"
+    return render_template("overview_page.html", email=session['email'], students=students)
+    # return session['email']
+
+
+@app.route('/admin/auth/login/approved', methods=['GET'])
+def overview_approved():
+
+    # collection = 'students'
+    students = Database.find(collection='students',
+                             query={'approval_status': 'Approved'})
+    # return "HELLO"
+    return render_template("overview_page.html", email=session['email'], students=students)
+    # return session['email']
+
+
+@app.route('/admin/auth/login/all', methods=['GET'])
+def overview_all():
+
+    # collection = 'students'
+    students = Database.find(collection='students',
+                             query={})
     # return "HELLO"
     return render_template("overview_page.html", email=session['email'], students=students)
     # return session['email']

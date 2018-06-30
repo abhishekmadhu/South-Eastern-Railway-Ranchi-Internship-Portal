@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>admin.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #999999; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(0,0,128); font-weight: bold; }
+.s1 { color: rgb(0,0,0); }
+.s2 { color: rgb(0,128,128); font-weight: bold; }
+.s3 { color: rgb(128,128,128); font-style: italic; }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+admin.py</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<a name="l1"><span class="ln">1    </span></a><span class="s0">from </span><span class="s1">flask </span><span class="s0">import </span><span class="s1">session 
+<a name="l2"><span class="ln">2    </span></a> 
+<a name="l3"><span class="ln">3    </span></a>__author__ = </span><span class="s2">&quot;abhishekmadhu&quot;</span><span class="s1"> 
+<a name="l4"><span class="ln">4    </span></a> 
+<a name="l5"><span class="ln">5    </span></a></span><span class="s0">import </span><span class="s1">uuid 
+<a name="l6"><span class="ln">6    </span></a></span><span class="s0">from </span><span class="s1">src.common.database </span><span class="s0">import </span><span class="s1">Database 
+<a name="l7"><span class="ln">7    </span></a></span><span class="s0">import </span><span class="s1">datetime 
+<a name="l8"><span class="ln">8    </span></a>__author__ = </span><span class="s2">&quot;abhishekmadhu&quot;</span><span class="s1"> 
+<a name="l9"><span class="ln">9    </span></a> 
+<a name="l10"><span class="ln">10   </span></a> 
+<a name="l11"><span class="ln">11   </span></a></span><span class="s0">class </span><span class="s1">Admin(object): 
+<a name="l12"><span class="ln">12   </span></a>    </span><span class="s0">def </span><span class="s1">__init__(self, email, password, _id=</span><span class="s0">None</span><span class="s1">): 
+<a name="l13"><span class="ln">13   </span></a>        self.email = email 
+<a name="l14"><span class="ln">14   </span></a>        self.password = password 
+<a name="l15"><span class="ln">15   </span></a>        self._id = _id 
+<a name="l16"><span class="ln">16   </span></a> 
+<a name="l17"><span class="ln">17   </span></a>    </span><span class="s0">def </span><span class="s1">json(self): 
+<a name="l18"><span class="ln">18   </span></a>        </span><span class="s0">return </span><span class="s1">{ 
+<a name="l19"><span class="ln">19   </span></a>            </span><span class="s2">'_id'</span><span class="s1">: self._id, 
+<a name="l20"><span class="ln">20   </span></a>            </span><span class="s2">'email'</span><span class="s1">: self.email, 
+<a name="l21"><span class="ln">21   </span></a>            </span><span class="s2">'password'</span><span class="s1">: self.password 
+<a name="l22"><span class="ln">22   </span></a>        } 
+<a name="l23"><span class="ln">23   </span></a> 
+<a name="l24"><span class="ln">24   </span></a>    @classmethod 
+<a name="l25"><span class="ln">25   </span></a>    </span><span class="s0">def </span><span class="s1">from_mongo_by_id(cls, _id): 
+<a name="l26"><span class="ln">26   </span></a>        </span><span class="s3"># Post.from_mongo('123')</span><span class="s1"> 
+<a name="l27"><span class="ln">27   </span></a>        student_data = Database.find_one(collection=</span><span class="s2">'admins'</span><span class="s1">, 
+<a name="l28"><span class="ln">28   </span></a>                                         query={</span><span class="s2">'_id'</span><span class="s1">: _id}) 
+<a name="l29"><span class="ln">29   </span></a>        </span><span class="s0">return </span><span class="s1">cls(**student_data) 
+<a name="l30"><span class="ln">30   </span></a> 
+<a name="l31"><span class="ln">31   </span></a>    @classmethod 
+<a name="l32"><span class="ln">32   </span></a>    </span><span class="s0">def </span><span class="s1">from_mongo_by_email(cls, email): 
+<a name="l33"><span class="ln">33   </span></a>        data = Database.find_one(collection=</span><span class="s2">'admins'</span><span class="s1">, 
+<a name="l34"><span class="ln">34   </span></a>                                 query={</span><span class="s2">'email'</span><span class="s1">: email}) 
+<a name="l35"><span class="ln">35   </span></a>        </span><span class="s0">if </span><span class="s1">data </span><span class="s0">is not None</span><span class="s1">: 
+<a name="l36"><span class="ln">36   </span></a>            </span><span class="s0">return </span><span class="s1">cls(**data) 
+<a name="l37"><span class="ln">37   </span></a>        </span><span class="s0">return None</span><span class="s1"> 
+<a name="l38"><span class="ln">38   </span></a> 
+<a name="l39"><span class="ln">39   </span></a>    @staticmethod 
+<a name="l40"><span class="ln">40   </span></a>    </span><span class="s0">def </span><span class="s1">is_login_valid(email, password): 
+<a name="l41"><span class="ln">41   </span></a>        </span><span class="s3"># User.is_login_valid(&quot;abhishekmadhu.uem@gmail.com&quot;, &quot;1234&quot;)</span><span class="s1"> 
+<a name="l42"><span class="ln">42   </span></a>        admin = Admin.from_mongo_by_email(email=email) 
+<a name="l43"><span class="ln">43   </span></a>        </span><span class="s0">if </span><span class="s1">admin </span><span class="s0">is not None</span><span class="s1">: 
+<a name="l44"><span class="ln">44   </span></a>            </span><span class="s0">return </span><span class="s1">admin.password == password 
+<a name="l45"><span class="ln">45   </span></a>        </span><span class="s0">return False</span><span class="s1"> 
+<a name="l46"><span class="ln">46   </span></a> 
+<a name="l47"><span class="ln">47   </span></a>    @staticmethod 
+<a name="l48"><span class="ln">48   </span></a>    </span><span class="s0">def </span><span class="s1">login(user_email): 
+<a name="l49"><span class="ln">49   </span></a>        </span><span class="s3"># if the login credentials above are valid</span><span class="s1"> 
+<a name="l50"><span class="ln">50   </span></a>        </span><span class="s3"># login already valid ie: is_login_valid already called</span><span class="s1"> 
+<a name="l51"><span class="ln">51   </span></a> 
+<a name="l52"><span class="ln">52   </span></a>        session[</span><span class="s2">'email'</span><span class="s1">] = user_email 
+<a name="l53"><span class="ln">53   </span></a> 
+<a name="l54"><span class="ln">54   </span></a>    @staticmethod 
+<a name="l55"><span class="ln">55   </span></a>    </span><span class="s0">def </span><span class="s1">logout(self): 
+<a name="l56"><span class="ln">56   </span></a>        session[</span><span class="s2">'email'</span><span class="s1">] = </span><span class="s0">None</span><span class="s1"> 
+<a name="l57"><span class="ln">57   </span></a> 
+<a name="l58"><span class="ln">58   </span></a>    </span><span class="s0">def </span><span class="s1">get_details(self): 
+<a name="l59"><span class="ln">59   </span></a>        </span><span class="s0">return </span><span class="s1">Admin.from_mongo_by_id(self._id)    </span><span class="s3"># REFACTORED FUNCTION</span><span class="s1"> 
+<a name="l60"><span class="ln">60   </span></a></span></pre>
+</body>
+</html>

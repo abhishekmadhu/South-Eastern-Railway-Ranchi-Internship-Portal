@@ -17,6 +17,10 @@
 
     <div class="container">
 
+        <div style="float:left;padding:30px;">
+            <h2><strong>Registration Number: {{ student.registration_no }}</strong></h2>
+        </div>
+
         <div style="float:right;">
             <img src="{{ url_for('send_image', filename=image_name) }}" alt="Student-Image" class="profile-image"
         style="max-height:150px;max-width:150px;">
@@ -76,15 +80,6 @@
 
                 <tr>
                     <td>
-                        Registration Date
-                    </td>
-                    <td>
-                        {{ student.created_date }}
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
                         Starting Date
                     </td>
                     <td>
@@ -95,12 +90,72 @@
                 <tr>
 
                     <td>
+                        Address for communication 
+                    </td>
+                    <td>
+                        {{ student.address }}
+                    </td>
+                </tr>
+                <tr>
+
+                    <td>
+                        Mobile Number
+                    </td>
+                    <td>
+                        {{ student.mobile }}
+                    </td>
+                </tr>
+               
+                <tr>
+                    <td>
+                        Branch
+                    </td>
+                    <td>
+                        {{ student.branch }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Remarks
+                    </td>
+                    <td>
+                        {{ student.remarks }}
+                    </td>
+                </tr>
+                 <tr>
+                    <td>
+                        Semester
+                    </td>
+                    <td>
+                        {{ student.semester }}
+                    </td>
+                </tr>
+                 <tr>
+                    <td>
+                        Year
+                    </td>
+                    <td>
+                        {{ student.year }}
+                    </td>
+                </tr>
+                 <tr>
+                    <td>
+                        Registration Date
+                    </td>
+                    <td>
+                        {{ student.created_date }}
+                    </td>
+                </tr>
+                <tr>
+
+                    <td>
                         Approval Status
                     </td>
                     <td>
                         {{ student.approval_status }}
                     </td>
                 </tr>
+
 
             </tbody>
         </table>

@@ -26,6 +26,10 @@ class Database(object):
     def find_one(collection, query):
         return Database.DATABASE[collection].find_one(query)
 
+    @staticmethod
+    def count(collection, query):
+        return Database.DATABASE[collection].count(query)
+
 # ###############################################################
 
     @staticmethod

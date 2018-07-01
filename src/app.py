@@ -73,12 +73,26 @@ def register_user():
     course = request.form['course']
     created_date = datetime.datetime.utcnow()
     dos = request.form['dos']
+    address = request.form['address']
+    mobile = request.form['contact_number']
+    branch = request.form['branch']
+    remarks = request.form['remarks']
+    semester = request.form['semester']
+    year = request.form['year']
     approval_status = "Pending"
     _id = uuid.uuid4().hex
 
+    reg_num = Database.count(collection='students', query={}) + 1
+
+    registration_no = "RNC/2019/Intern/Batch1/" + (10000 + reg_num).__str__()
+    print(registration_no)
+
     a = Students.register(email=email, password=password, institute=institute, guardian_name=guardian_name,
                           student_name=student_name, created_date=created_date, dos=dos,
+                          address=address, mobile=mobile, branch=branch, remarks=remarks,
+                          semester=semester, year=year,
                           approval_status=approval_status,
+                          registration_no=registration_no,
                           _id=_id, course=course)
 
     # #########remove block if does not work
@@ -179,7 +193,9 @@ def show_details_for_student(_id):
 def approve_candidate_status(_id):
     Database.update_status_to_selected_by_id(collection='students', _id=_id)
     student = Students.from_mongo_by_id(_id=_id)
-    return render_template('student_data.html', email=session['email'], student=student)
+    filename = _id + ".jpg"
+    return render_template('student_data.html', email=session['email'], student=student,
+                           image_name=filename)
 
 
 # ###############################################################
@@ -197,21 +213,21 @@ def add_image():
 @app.route('/upload', methods=['POST', 'GET'])
 def upload():
     target = os.path.join(APP_ROOT, 'images/')
-    print(target)
+    # print(target)
 
     email = session['email']
     student = Students.from_mongo_by_email(email=email)
     id = student._id
-    print(id)
+    # print(id)
 
     if not os.path.isdir(target):
         os.mkdir(target)
 
     for file in request.files.getlist("file"):
-        print(file)
+        # print(file)
         filename = id + ".jpg"
         destination = "/".join([target, filename])
-        print(destination)
+        # print(destination)
         file.save(destination)
     return render_template("student_data.html", student=student, image_name=filename)
 

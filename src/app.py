@@ -95,10 +95,8 @@ def register_user():
                           registration_no=registration_no,
                           _id=_id, course=course)
 
-    # #########remove block if does not work
+    # ######### remove block if does not work
     # also return render_template("profile.html", email=session['email'])
-    # user = User.get_by_email(email=email)
-    # blog = Blog.find_by_author_id(user._id)
     # ##########################################
     student = Students.from_mongo_by_email(session['email'])
 

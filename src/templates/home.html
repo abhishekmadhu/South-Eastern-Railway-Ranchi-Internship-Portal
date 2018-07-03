@@ -17,15 +17,24 @@
 
 <div class="container" id="blur-bg" style="">
 
+
     <div style="float:left; padding-top:50px;
                 margin-left:150px;
                 margin-top:70px;">
-        <a href="/register"><button class="btn btn-primary">New Candidate Register</button></a>
+
+        <div id="welcome">
+            <h2>Welcome to SERLY</h2>
+            <h2>Internship Portal</h2>
+        </div>
+
+        <div>
+            <a href="/register"><button class="btn btn-primary">New Candidate Register</button></a>
+        </div>
     </div>
 
     <!-- The main form, do not touch -->
-    <div class="login-area" style="margin-left:600px;">
-        <div class="white" style="margin-top:30px;">
+    <div class="login-area">
+        <div class="white" style="">
             <i class="fas fa-user-circle" style="font-size:200%; padding:5px;"></i>
             <p class="login-head" style="float:left;">Login</p>
         </div>
@@ -61,7 +70,7 @@
 
 <style>
     #blur-bg{
-        background:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROFZ_bo5JrMsDNUXJeTl7jhyo-g_J6Ymr7Y5xmn2j-YfOU4S4FPQ);
+        background:url(https://wallup.net/wp-content/uploads/2017/03/28/197526-vehicle-train-blurred-closeup.jpg);
         background-repeat: no-repeat;
         background-size:100%;
         width:100%;
@@ -92,11 +101,21 @@
         <!--background: blue;-->
     <!--}-->
 
-    #login-area {
-        margin-left:600px;
+    .login-area {
+        margin-left:300px;
         margin-top:30px;
         margin-bottom:30px;
-        float:right;
+        margin-right:30px;
+        float:left;
+        border: double #00adff54 5px;
+        border-radius: 25px;
+        min-width: 450px;
+        background: darkslateblue;
+        padding: 15px;
+    }
+
+    #welcome{
+        color:white;
     }
 </style>
 

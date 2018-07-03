@@ -5,7 +5,7 @@
     <title>Blog Up</title>
 
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"/>
+    <!--<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"/>-->
     <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
@@ -15,68 +15,78 @@
 </head>
 <body>
 
-<div class="container" id="blur-bg" style="">
-
-
-    <div style="float:left; padding-top:50px;
-                margin-left:150px;
-                margin-top:70px;">
-
-        <div id="welcome">
-            <h2>Welcome to SERLY</h2>
-            <h2>Internship Portal</h2>
-        </div>
-
-        <div>
-            <a href="/register"><button class="btn btn-primary">New Candidate Register</button></a>
-        </div>
+<div id="box">
+    <div id="a">
+        <img src="https://i.imgur.com/hMXpmbC.jpg" width="100%">
     </div>
 
-    <!-- The main form, do not touch -->
-    <div class="login-area">
-        <div class="white" style="">
-            <i class="fas fa-user-circle" style="font-size:200%; padding:5px;"></i>
-            <p class="login-head" style="float:left;">Login</p>
-        </div>
+    <div id="b" style="overflow:hidden;background:white;"> </div>
+</div>
 
-        <br>
-        <br>
+    <div class="container" id="blur-bg" style="">
 
-        <div class="page-form">
-            <form id="login-form" action="/auth/login" method="POST">
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="text" id="email" class="form-control" name="email">
-                </div>
+        <!--<div class="blur"></div>-->
 
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" class="form-control" name="password">
-                </div>
+        <div id="welcome-block" style="">
 
-                <input type="submit" id="submit-button" class="btn btn-default">
-            </form>
+            <div id="welcome" class="text-center">
+                <h2>Welcome to Ranchi Division,</h2>
+                <h2>South Eastern Railway</h2>
+                <h2>Internship Portal</h2>
+            </div>
 
-
-            <div class="nothing" style="min-height:50px;">
-
+            <div class="text-center">
+                <a href="/register"><button class="btn btn-primary">New Candidate Register</button></a>
             </div>
         </div>
 
+        <!-- The main form, do not touch -->
+        <div class="login-area">
+            <div class="white" style="">
+                <i class="fas fa-user-circle" style="font-size:200%; padding:5px;"></i>
+                <p class="login-head" style="float:left;">Login</p>
+                <p style="float:right;margin:3%;"> (for existing user)</p>
+            </div>
+
+            <br>
+            <br>
+
+            <div class="page-form">
+                <form id="login-form" action="/auth/login" method="POST">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" id="email" class="form-control" name="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" class="form-control" name="password">
+                    </div>
+
+                    <input type="submit" id="submit-button" class="btn btn-default" value="Log-In">
+                </form>
+
+
+                <div class="nothing" style="min-height:50px;">
+
+                </div>
+            </div>
+        </div>
     </div>
 
 
-</div>
-
 <style>
     #blur-bg{
-        background:url(https://wallup.net/wp-content/uploads/2017/03/28/197526-vehicle-train-blurred-closeup.jpg);
+        background:linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(https://images.unsplash.com/photo-1455014925136-e46fb2ccc345?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=7a57a743424419744f79cb260cc9130a&auto=format&fit=crop&w=750&q=80);
         background-repeat: no-repeat;
         background-size:100%;
         width:100%;
         height:100%;
-        margin: 150px 0px 0px 0px;
-        <!--background-size:cover;-->
+        max-height=300px;
+        margin: 0px 0px 0px 0px;
+        background-size:cover;
+        border-bottom: 5px solid darkgray;
+        border-top: 5px solid darkgray;
         <!-- -webkit-filter: blur(4px);-->
         <!-- -moz-filter: blur(4px);-->
         <!-- -ms-filter: blur(4px);-->
@@ -102,10 +112,10 @@
     <!--}-->
 
     .login-area {
-        margin-left:300px;
-        margin-top:30px;
-        margin-bottom:30px;
-        margin-right:30px;
+        margin-left:15%;
+        margin-top:3%;
+        margin-bottom:3%;
+        margin-right:3%;
         float:left;
         border: double #00adff54 5px;
         border-radius: 25px;
@@ -117,6 +127,68 @@
     #welcome{
         color:white;
     }
+
+    #welcome-block{
+        float:left;
+        padding:30px;
+        margin-left:150px;
+        margin-top:70px;
+    }
+
+    .strong{
+        font-weight:bold;
+    }
+    <!-- ------------------------------------------------------------ -->
+
+    body {
+      background:url('https://images.unsplash.com/photo-1452878964126-81135387b19f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=fcde8d2ab5c4526bc1e6392ffce873d2&auto=format&fit=crop&w=1050&q=80') no-repeat center center fixed;
+      <!--background-size: cover;-->
+    }
+
+    .blur {
+      background: url(https://images.unsplash.com/16/unsplash_5263607dd1bfc_2.jpg?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5c606dee50bbacda308790f544fc8dd9&auto=format&fit=crop&w=1050&q=80) no-repeat center center fixed;
+      background-size: cover;
+      overflow: hidden;
+      filter: blur(13px);
+      position: absolute;
+      height: 300px;
+      top: -50px;
+      left: -50px;
+      right: -50px;
+      bottom: -50px;
+    }
+
+    .widget {
+      border-top: 2px solid rgba(255, 255, 255, .5);
+      border-bottom: 2px solid rgba(255, 255, 255, .5);
+      height: 200px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .center {
+      position: absolute;
+      margin: auto;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    body{
+        background: url(https://images.unsplash.com/photo-1503517245364-78fc9a9cdd37?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=95d5c948d05967a4eebec468a09f5dac&auto=format&fit=crop&w=633&q=80) no-repeat center center fixed;
+        background-size: cover;
+    }
+
+    <!--#box {-->
+        <!--display: flex;-->
+        <!--float: left;-->
+    <!--}-->
+    <!--#b {-->
+        <!--flex-grow: 100;-->
+        <!--border: 1px solid green;-->
+    <!--}-->
+
 </style>
 
 </body>

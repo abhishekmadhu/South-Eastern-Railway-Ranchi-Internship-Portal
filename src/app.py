@@ -3,14 +3,13 @@ import os
 import uuid
 
 from datetime import timezone
-from src.common.database import Database
-from src.models.student_data import Students
-from src.models.admin import Admin
+from common.database import Database
+from models.student_data import Students
+from models.admin import Admin
 # from src.models.user import User
 from flask import Flask, render_template, request, session, make_response, send_from_directory
 
 __author__ = "abhishekmadhu"
-
 app = Flask(__name__)  # '__main__'
 app.secret_key = "abhi"
 
@@ -22,10 +21,10 @@ def home_template():
     return render_template('home.html')
 
 
-@app.route('/login')  # www.myweb.com/api/login
-def login_template():
-    return render_template('login.html')
-    # return "Hello World"
+# @app.route('/login')  # www.myweb.com/api/login
+# def login_template():
+#     return render_template('scratchpad.html')
+#     # return "Hello World"
 
 
 @app.route('/register')  # www.myweb.com/api/register
@@ -233,6 +232,17 @@ def upload():
 @app.route('/upload/<filename>')
 def send_image(filename):
     return send_from_directory("images", filename)
+
+
+@app.route('/scratchpad')
+def show_scratchpad():
+    return  render_template("scratchpad.html")
+
+@app.route('/logout')
+def logout():
+    session['email'] = None
+    session.clear()
+    return make_response(home_template)
 
 
 # running the app if it is called by itself

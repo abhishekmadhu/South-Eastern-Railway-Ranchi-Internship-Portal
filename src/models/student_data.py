@@ -3,7 +3,7 @@ from flask import session
 __author__ = "abhishekmadhu"
 
 import uuid
-from src.common.database import Database
+from common.database import Database
 import datetime
 __author__ = "abhishekmadhu"
 

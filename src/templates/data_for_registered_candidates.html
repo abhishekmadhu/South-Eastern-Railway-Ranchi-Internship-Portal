@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base2.html" %}
 {% block content %}
 
 <!-- this page is displayed to the admin while showing the data of
@@ -152,7 +152,12 @@
 
 
         {% if student.approval_status == "Pending" %}
-        <a href="/admin/overview/details/approval/{{ student._id }}"><button class="btn btn-primary">APPROVE</button></a>
+        <a href="/admin/overview/details/approval/{{ student._id }}"><button class="btn btn-primary" style="float:left;">APPROVE</button></a>
+        <div class="bottom-buttons" style="">
+            <a href="/admin/overview/details/rejection/{{ student._id }}"><button class="btn btn-danger" style="float:right;">REJECT</button></a>
+            <input type="text" class="" placeholder="Reason for rejection" style="float:right;min-width:50%; height:50px;margin-right:2%;">
+
+        </div>
         {% endif %}
 </div>
 

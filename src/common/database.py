@@ -42,3 +42,14 @@ class Database(object):
                                                         "approval_status": "Approved"
                                                         }
                                                 })
+
+    @staticmethod
+    def update_status_to_rejected_by_id(reason, collection, _id):
+        Database.DATABASE[collection].update(
+            {"_id": _id},
+            {
+                "$set": {
+                    "approval_status": "Rejected",
+                    "reason": reason
+                }
+            })

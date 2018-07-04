@@ -2,12 +2,13 @@ import datetime
 import os
 import uuid
 
-from datetime import timezone
+from datetime import timedelta
 from common.database import Database
 from models.student_data import Students
 from models.admin import Admin
 # from src.models.user import User
-from flask import Flask, render_template, request, session, make_response, send_from_directory
+from flask import Flask, render_template, request, session, make_response, send_from_directory, url_for
+from werkzeug.utils import redirect
 
 __author__ = "abhishekmadhu"
 app = Flask(__name__)  # '__main__'
@@ -40,6 +41,7 @@ def initialize_database():
 
 @app.route('/auth/login', methods=['POST'])
 def login_user():                               # Refactoring DONE
+    app.permanent_session_lifetime = timedelta(minutes=1)
     email = request.form['email']
     password = request.form['password']
 
@@ -78,6 +80,7 @@ def register_user():
     remarks = request.form['remarks']
     semester = request.form['semester']
     year = request.form['year']
+    reason = "N/A"
     approval_status = "Pending"
     _id = uuid.uuid4().hex
 
@@ -195,6 +198,15 @@ def approve_candidate_status(_id):
                            image_name=filename)
 
 
+@app.route('/admin/overview/details/rejection/<string:_id>', methods=['POST', 'GET'])
+def approve_candidate_status(_id):
+    Database.update_status_to_selected_by_id(collection='students', _id=_id)
+    student = Students.from_mongo_by_id(_id=_id)
+    filename = _id + ".jpg"
+    return render_template('student_data.html', email=session['email'], student=student,
+                           image_name=filename)
+
+
 # ###############################################################
 # route to add images via the web page
 #   This route takes the image, and puts it in a
@@ -242,7 +254,8 @@ def show_scratchpad():
 def logout():
     session['email'] = None
     session.clear()
-    return make_response(home_template)
+    # browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.w)
+    return redirect(url_for('home_template'))
 
 
 # running the app if it is called by itself

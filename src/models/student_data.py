@@ -13,6 +13,7 @@ class Students(object):
                  created_date, dos,
                  address, mobile, branch, remarks,
                  semester, year, registration_no,
+                 reason=None,
                  approval_status=None, _id=None):
         self.email = email
         self.password = password
@@ -30,6 +31,7 @@ class Students(object):
         self.semester = semester
         self.year = year
         self.registration_no = registration_no
+        self.reason = reason
         self.approval_status = "PENDING" if approval_status is None else approval_status
 
     def save_to_mongo(self):
@@ -48,6 +50,7 @@ class Students(object):
             'dos': self.dos,
             'course': self.course,
             'approval_status': self.approval_status,
+            'reason': self.reason,
             'address': self.address,
             'mobile': self.mobile,
             'branch': self.branch,
@@ -101,6 +104,7 @@ class Students(object):
                  course, created_date, dos,
                  address, mobile, branch, remarks,
                  semester, year, registration_no,
+                 reason,
                  approval_status, _id):
 
         student = cls.from_mongo_by_email(email)
@@ -111,6 +115,7 @@ class Students(object):
                               course, created_date, dos,
                               address, mobile, branch, remarks,
                               semester, year, registration_no,
+                              reason,
                               approval_status, _id)
             new_student.save_to_mongo()
             session['email'] = email

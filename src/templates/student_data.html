@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base2.html" %}
 {% block content %}
 
 <!-- this page is displayed to the student while showing his data -->
@@ -17,7 +17,7 @@
 
     <div class="container">
 
-        <a href="{{ url_for('logout') }}"><button class="btn btn-primary" style="float:left;margin:5px;">Home</button></a>
+        <a href="{{ url_for('logout') }}"><button class="btn btn-primary" style="float:left;margin:5px;">Logout</button></a>
 
         <div style="float:left;padding:30px;">
             <h2><strong>Registration Number: {{ student.registration_no }}</strong></h2>

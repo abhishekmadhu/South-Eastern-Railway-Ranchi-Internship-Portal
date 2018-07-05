@@ -28,6 +28,6 @@ It should be listed in system type.
 * Go [here](https://www.mongodb.com/dr/fastdl.mongodb.org/win32/mongodb-win32-x86_64-2008plus-ssl-4.0.0-signed.msi/download) and it will be downloaded.
 * **NOTE**: If this does not work, go to [https://www.mongodb.com/download-center#community] -> select "Community Server", -> select "<yourOperatingSystem>" -> "download .msi"
 
-##### Step B (to download mongoDB for 32 x86 PC):
+##### Step B (to download mongoDB for 32 x86 PC): ** *THIS IS INCOMPLETE,  PLEASE DO NOT FOLLOW* **
 * Go [here](#) and it will be downloaded.
 * **NOTE**: If this does not work, go to [#] -> select "Community Server", -> select "<yourOperatingSystem>" -> "download .msi"

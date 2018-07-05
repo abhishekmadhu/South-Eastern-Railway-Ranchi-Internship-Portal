@@ -94,6 +94,7 @@ def register_user():
                           address=address, mobile=mobile, branch=branch, remarks=remarks,
                           semester=semester, year=year,
                           approval_status=approval_status,
+                          reason=reason,
                           registration_no=registration_no,
                           _id=_id, course=course)
 
@@ -194,16 +195,18 @@ def approve_candidate_status(_id):
     Database.update_status_to_selected_by_id(collection='students', _id=_id)
     student = Students.from_mongo_by_id(_id=_id)
     filename = _id + ".jpg"
-    return render_template('student_data.html', email=session['email'], student=student,
+    return render_template('data_for_registered_candidates.html', email=session['email'], student=student,
                            image_name=filename)
 
 
 @app.route('/admin/overview/details/rejection/<string:_id>', methods=['POST', 'GET'])
-def approve_candidate_status(_id):
-    Database.update_status_to_selected_by_id(collection='students', _id=_id)
+def reject_candidate_status(_id):
+    reason = request.form['reason']
+
+    Database.update_status_to_rejected_by_id(reason=reason,collection='students', _id=_id)
     student = Students.from_mongo_by_id(_id=_id)
     filename = _id + ".jpg"
-    return render_template('student_data.html', email=session['email'], student=student,
+    return render_template('data_for_registered_candidates.html', email=session['email'], student=student,
                            image_name=filename)
 
 

@@ -2,10 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Blog Up</title>
+    <title>SE Railway | Internship</title>
 
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAD9/f0AAAAAADAwMAACAgIA////APj4+AAEBAQA+vr6APz8/AAPDw8AAQEBAP7+/gCysrIAAwMDAAAAAAAAAAAAEUoiIiIiNBERRLpERFFEERFES0RAdEQREUQRERERtBERShEREREUERFBRBERRBQREUEaEREdFBERQREREREUERFBFEFsyRQREUFEREREFBERQUREREQUERFBhEcUQBQREUARREQRZBERREERERtEERFEREEUREQREUREQxRERBHAAwAAwAMAAMADAADAAwAAwAMAAMADAADAAwAAwAMAAMADAADAAwAAwAMAAMADAADAAwAAwAMAAMADAADAAwAA" rel="icon" type="image/x-icon" />
+    
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"/>
+    <link rel="stylesheet" type="text/css" media="print" href="{{ url_for('static', filename='css/print.css') }}"/>
     <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
@@ -19,7 +22,7 @@
 
 <div id="box">
     <div id="a">
-        <a href="http://www.ser.indianrailways.gov.in/view_section.jsp?lang=0&id=0,6,403"><img src="https://i.imgur.com/hMXpmbC.jpg" width="100%"></a>
+        <a href="http://www.ser.indianrailways.gov.in/view_section.jsp?lang=0&id=0,6,403"><img src="https://i.imgur.com/hMXpmbC.jpg" class="print" width="100%" alt="railwayImage"></a>
     </div>
 
     <div id="b" style="overflow:hidden;background:white;"> </div>

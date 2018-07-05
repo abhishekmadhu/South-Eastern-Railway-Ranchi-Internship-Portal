@@ -1,10 +1,15 @@
-{% extends "base.html" %}
+{% extends "base2.html" %}
 {% block content %}
 
 <!-- this page is displayed to the admin while showing the data of
         individual students -->
 
-        <div class="container">
+<div class="container">
+    <a href="{{ url_for('overview_all') }}"><button class="btn btn-primary" style="float:left;margin:5px;">Home</button></a>
+
+        <div style="float:left;padding:30px;">
+            <h2><strong>Registration Number: {{ student.registration_no }}</strong></h2>
+        </div>
 
         <div style="float:right;">
             <img src="{{ url_for('send_image', filename=image_name) }}" alt="Student-Image" class="profile-image"
@@ -65,15 +70,6 @@
 
                 <tr>
                     <td>
-                        Registration Date
-                    </td>
-                    <td>
-                        {{ student.created_date }}
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
                         Starting Date
                     </td>
                     <td>
@@ -84,6 +80,64 @@
                 <tr>
 
                     <td>
+                        Address for communication
+                    </td>
+                    <td>
+                        {{ student.address }}
+                    </td>
+                </tr>
+                <tr>
+
+                    <td>
+                        Mobile Number
+                    </td>
+                    <td>
+                        {{ student.mobile }}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Branch
+                    </td>
+                    <td>
+                        {{ student.branch }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Remarks
+                    </td>
+                    <td>
+                        {{ student.remarks }}
+                    </td>
+                </tr>
+                 <tr>
+                    <td>
+                        Semester
+                    </td>
+                    <td>
+                        {{ student.semester }}
+                    </td>
+                </tr>
+                 <tr>
+                    <td>
+                        Year
+                    </td>
+                    <td>
+                        {{ student.year }}
+                    </td>
+                </tr>
+                 <tr>
+                    <td>
+                        Registration Date
+                    </td>
+                    <td>
+                        {{ student.created_date }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
                         Approval Status
                     </td>
                     <td>
@@ -91,13 +145,41 @@
                     </td>
                 </tr>
 
+                {% if student.approval_status == "Rejected" %}
+                
+                    <tr>
+                        <td>
+                            Reason For Rejection
+                        </td>
+                        <td>
+                            {{ student.reason }}
+                        </td>
+                    </tr>
+
+                {% endif %}
+
+
             </tbody>
         </table>
-    </div>
+
 
         {% if student.approval_status == "Pending" %}
-        <a href="/admin/overview/details/approval/{{ student._id }}"><button class="btn btn-primary">APPROVE</button></a>
+        <a href="/admin/overview/details/approval/{{ student._id }}"><button class="btn btn-primary" style="float:left;">APPROVE</button></a>
+
+        <form id="login-form" action="/admin/overview/details/rejection/{{ student._id }}" method="POST">
+
+            <div class="form-group">
+                <input type="submit" class="btn btn-danger" style="float:right;" value="REJECT">
+                <input type="text" class="" placeholder="Reason for rejection" style="float:right;min-width:50%; height:50px;margin-right:2%;" name="reason">
+            </div>
+
+        <div class="bottom-buttons" style="">
+            
+            
+        </div>
         {% endif %}
-    </div>
+
+
+</div>
 
 {% endblock %}

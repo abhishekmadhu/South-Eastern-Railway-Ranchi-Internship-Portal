@@ -3,14 +3,18 @@ from flask import session
 __author__ = "abhishekmadhu"
 
 import uuid
-from src.common.database import Database
+from common.database import Database
 import datetime
 __author__ = "abhishekmadhu"
 
 
 class Students(object):
     def __init__(self, email, password, institute, guardian_name, student_name, course,
-                 created_date, dos, approval_status=None, _id=None):
+                 created_date, dos,
+                 address, mobile, branch, remarks,
+                 semester, year, registration_no,
+                 reason=None,
+                 approval_status=None, _id=None):
         self.email = email
         self.password = password
         self.institute = institute
@@ -20,6 +24,14 @@ class Students(object):
         self._id = _id
         self.created_date = created_date
         self.dos = dos
+        self.address = address
+        self.mobile = mobile
+        self.branch = branch
+        self.remarks = remarks
+        self.semester = semester
+        self.year = year
+        self.registration_no = registration_no
+        self.reason = reason
         self.approval_status = "PENDING" if approval_status is None else approval_status
 
     def save_to_mongo(self):
@@ -28,6 +40,7 @@ class Students(object):
     def json(self):
         return {
             '_id': self._id,
+            'registration_no': self.registration_no,
             'email': self.email,
             'password': self.password,
             'student_name': self.student_name,
@@ -36,7 +49,14 @@ class Students(object):
             'created_date': self.created_date,
             'dos': self.dos,
             'course': self.course,
-            'approval_status': self.approval_status
+            'approval_status': self.approval_status,
+            'reason': self.reason,
+            'address': self.address,
+            'mobile': self.mobile,
+            'branch': self.branch,
+            'remarks': self.remarks,
+            'semester': self.semester,
+            'year': self.year
         }
 
     @classmethod
@@ -81,14 +101,22 @@ class Students(object):
 
     @classmethod
     def register(cls, email, password, institute, guardian_name, student_name,
-                 course, created_date, dos, approval_status, _id):
+                 course, created_date, dos,
+                 address, mobile, branch, remarks,
+                 semester, year, registration_no,
+                 reason,
+                 approval_status, _id):
 
         student = cls.from_mongo_by_email(email)
 
         if student is None:
             # student does not exist
             new_student = cls(email, password, institute, guardian_name, student_name,
-                              course, created_date, dos, approval_status, _id)
+                              course, created_date, dos,
+                              address, mobile, branch, remarks,
+                              semester, year, registration_no,
+                              reason,
+                              approval_status, _id)
             new_student.save_to_mongo()
             session['email'] = email
             return 1

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Up</title>
+
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAD9/f0AAAAAADAwMAACAgIA////APj4+AAEBAQA+vr6APz8/AAPDw8AAQEBAP7+/gCysrIAAwMDAAAAAAAAAAAAEUoiIiIiNBERRLpERFFEERFES0RAdEQREUQRERERtBERShEREREUERFBRBERRBQREUEaEREdFBERQREREREUERFBFEFsyRQREUFEREREFBERQUREREQUERFBhEcUQBQREUARREQRZBERREERERtEERFEREEUREQREUREQxRERBHAAwAAwAMAAMADAADAAwAAwAMAAMADAADAAwAAwAMAAMADAADAAwAAwAMAAMADAADAAwAAwAMAAMADAADAAwAA" rel="icon" type="image/x-icon" />
+    
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"/>-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/scratchpad.css') }}"/>
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+
+</head>
+<body>
+
+<div id="box">
+    <div id="a">
+        <img src="https://i.imgur.com/hMXpmbC.jpg" width="100%">
+    </div>
+
+    <div id="b" style="overflow:hidden;background:white;"> </div>
+</div>
+
+    <div class="container" id="blur-bg" style="">
+
+        <!--<div class="blur"></div>-->
+
+        <div id="welcome-block" style="">
+
+            <div id="welcome" class="text-center">
+                <p>Welcome to Ranchi Division,</p>
+                <p>South Eastern Railway</p>
+                <p>Internship Portal</p>
+            </div>
+
+            <div class="text-center">
+                <a href="/register"><button class="btn btn-primary">New Candidate Register</button></a>
+            </div>
+        </div>
+
+        <!-- The main form, do not touch -->
+        <div class="login-area">
+            <div class="white" style="">
+                <i class="fas fa-user-circle" style="font-size:200%; padding:5px;"></i>
+                <p class="login-head" style="float:left;">Login</p>
+                <p style="float:right;margin:3%;"> (for existing user)</p>
+            </div>
+
+            <br>
+            <br>
+
+            <div class="page-form">
+                <form id="login-form" action="/auth/login" method="POST">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" id="email" class="form-control" name="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" class="form-control" name="password">
+                    </div>
+
+                    <input type="submit" id="submit-button" class="btn btn-default" value="Log-In">
+                </form>
+
+
+                <div class="nothing" style="min-height:50px;">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="container">-->
+
+        <div id="second-banner" class="row">
+            <div class="col box-area" id="announcement-area">
+                <h1>Announcements</h1>
+                <hr>
+                <div>
+                    <ul class="list-in-box">
+                        <li>Announcement 1</li>
+                        <li>Announcement 2</li>
+                        <li>Announcement 3</li>
+                        <li>Announcement 4</li>
+                        <li>Announcement 5</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col box-area" id="contact-area">
+                <h1>Contacts</h1>
+                <hr>
+                <div>
+                    <ul class="list-in-box">
+                        <li>
+                            <p>Name: XXXX</p>
+                            <p>Designation: XXXX</p>
+                            <p>Contact: XXXX</p>
+                        </li>
+
+                        <li>
+                            <p>Name: YYYY</p>
+                            <p>Designation: YYYY</p>
+                            <p>Contact: YYYY</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+    <!--</div>-->
+
+    </div>
+
+
+<style>
+
+</style>
+
+</body>
+</html>

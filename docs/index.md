@@ -21,7 +21,6 @@ It should be listed in system type.
 
   If it is 64bit OS and x64 based processor, go to **Step A**
   
-  
   If it is 32bit OS and x86 based processor, go to **Step B**
   
 

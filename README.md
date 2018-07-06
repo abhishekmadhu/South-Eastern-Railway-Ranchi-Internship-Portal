@@ -3,9 +3,9 @@
 ##### This is a small application form that takes the Registration data inputs and saves it in MongoDB.
 
 
-For anything, [Gitter here](https://gitter.im/SERlyInterns/web-dev-application-form?utm_source=share-link&utm_medium=link&utm_campaign=share-link) with the wonderful developers, and me :D
+For anything regarding, [Gitter here](https://gitter.im/SERlyInterns/web-dev-application-form?utm_source=share-link&utm_medium=link&utm_campaign=share-link) with the wonderful developers, and me :D
 
-[Click here](https://gitter.im/SERlyInterns/web-dev-application-form?utm_source=share-link&utm_medium=link&utm_campaign=share-link) to contact me SPECIFICALLY FOR THIS PROJECT.
+[Click here](https://webchat.freenode.net/?channels=%23serly_internship_portal&uio=d4) to contact us(the ex-interns) SPECIFICALLY FOR THIS PROJECT.
 
 ***
 
@@ -56,7 +56,7 @@ It will be somewhere like:
 	* Paste the path after the semicolon (```;```). If there is no semi-colon in the end, insert one yourself before pasting.
 	* Open a new Command Prompt and type ```path``` (IMPORTANT: type only ```path``` with no spaces,  otherwise you'll be in trouble)
 	* Check that the path ```C:\Program Files\MongoDB\Server\4.0\bin``` is somewhere inside that output or not.
-	* If YES, continue. If NO,  [post a messege here](https://gitter.im/SERlyInterns/web-dev-application-form?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
+	* If YES, continue. If NO,  [post a messege here](https://webchat.freenode.net/?channels=%23serly_internship_portal&uio=d4)
 
 ***
 
@@ -64,5 +64,17 @@ It will be somewhere like:
 
 1. 
 
+
+
+
+
+***
+***
+***
+
+## Contact us here:
+1. Pick a nickname.
+2. Tick the "I am not a robot" checkbox.
+3. Connect.
 
 <iframe src="https://webchat.freenode.net?channels=%23serly_internship_portal&uio=d4" width="647" height="400"></iframe>

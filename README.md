@@ -1,4 +1,5 @@
 # A Small Web Application Form
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKxpa20O0eQmEZS5nBeWRO_0FdO8RfhwM8-vSn1lFEBCXklXKVww" alt="Logo">
 
 ##### This is a small application form that takes the Registration data inputs and saves it in MongoDB.
 

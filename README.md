@@ -61,3 +61,8 @@ It will be somewhere like:
 ***
 
 ### 2. Install python 3.0 or above
+
+1. 
+
+
+<iframe src="http://webchat.freenode.net?channels=%23serly_internship_portal&uio=d4" width="647" height="400"></iframe>

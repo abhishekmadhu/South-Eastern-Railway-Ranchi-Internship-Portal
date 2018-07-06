@@ -1,7 +1,6 @@
 # A Small Web Application Form
 
-##### This is a small application form that takes the Registration data inputs and 
-##### saves it in MongoDB.
+##### This is a small application form that takes the Registration data inputs and saves it in MongoDB.
 
 
 For anything, [Gitter here](https://gitter.im/SERlyInterns/web-dev-application-form?utm_source=share-link&utm_medium=link&utm_campaign=share-link) with the wonderful developers, and me :D
@@ -55,9 +54,15 @@ It will be somewhere like:
 	* Click ```Edit``` just below that frame
 	* Go to the end of the ```Variavle Value```
 	* Paste the path after the semicolon (```;```). If there is no semi-colon in the end, insert one yourself before pasting.
-	* Open a new Command Prompt and type ```path``` (IMPORTANT: type onlt ```path``` with no spaces,  otherwise you'll be in trouble)
+	* Open a new Command Prompt and type ```path``` (IMPORTANT: type only ```path``` with no spaces,  otherwise you'll be in trouble)
 	* Check that the path ```C:\Program Files\MongoDB\Server\4.0\bin``` is somewhere inside that output or not.
 	* If YES, continue. If NO,  [post a messege here](https://gitter.im/SERlyInterns/web-dev-application-form?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
 
-	
-### 2. 
+***
+
+### 2. Install python 3.0 or above
+
+1. 
+
+
+<iframe src="http://webchat.freenode.net?channels=%23serly_internship_portal&uio=d4" width="647" height="400"></iframe>

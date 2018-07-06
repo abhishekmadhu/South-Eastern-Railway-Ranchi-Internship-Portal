@@ -55,7 +55,7 @@ It will be somewhere like:
 	* Click ```Edit``` just below that frame
 	* Go to the end of the ```Variable Value```
 	* Paste the path after the semicolon (```;```). If there is no semi-colon in the end, insert one yourself before pasting.
-	* Open a new Command Prompt and type ```path``` (IMPORTANT: type only ```path``` with no spaces,  otherwise you'll be in trouble)
+	* Open a new Command Prompt and type ```path``` (IMPORTANT: type only ```path``` with no spaces,  otherwise you'll be in trouble) and hit Enter on your keyboard.
 	* Check that the path ```C:\Program Files\MongoDB\Server\4.0\bin``` is somewhere inside that output or not.
 	* If YES, continue. If NO,  [post a messege here](https://webchat.freenode.net/?channels=%23serly_internship_portal&uio=d4)
 
@@ -70,10 +70,10 @@ It will be somewhere like:
 3. After the download completes, proceed for installation:	
 	* double-click the .exe executable file that you downloaded
 	* Follow the installation guide (use default installation if you are a beginner)
-	* > Remember to CHECH the option "Add python to PATH"
+	* > Remember to CHECK the option "Add python to PATH"
 	* done
 
-4. Open a new Command Prompt and type ```path``` (IMPORTANT: type only ```path``` with no spaces,  otherwise you'll be in trouble)
+4. Open a new Command Prompt and type ```path``` (IMPORTANT: type only ```path``` with no spaces,  otherwise you'll be in trouble) and hit Enter on your keyboard.
 5. Check that the path ```C:\Users\<<YOUR_USER_NAME>>\AppData\Local\Programs\Python\Python37-32``` is somewhere inside that output or not.
 6. * If YES, continue. If No, then try to follow the same procedure to add ```C:\Users\<<YOUR_USER_NAME>>\AppData\Local\Programs\Python\Python37-32``` to the path. Follow the same steps as you did with mongoDB.
 7. Check again that the path ```C:\Users\<<YOUR_USER_NAME>>\AppData\Local\Programs\Python\Python37-32``` is somewhere inside that output or not.

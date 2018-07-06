@@ -3,4 +3,4 @@ logo: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKxpa20O0eQmEZS5nBeW
 description: This is a small application form that takes the Registration data inputs and saves it in MongoDB.
 show_downloads: true
 google_analytics:
-theme:
+theme: jekyll-theme-minimal

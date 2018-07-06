@@ -47,6 +47,17 @@ It will be somewhere like:
 ```
 	C:\Program Files\MongoDB\Server\4.0\bin
 ```
+2. Copy this path, and use it as follows.
+3. Go to ```Control Panel\System and Security\System``` and click on ```Advanced System Settings``` in the left panel.
+4. Click on 	```Environment Variables```
+5. Find the variable ```Path``` in both the frames. Then,  for both the Path variables:
+	* Click on ```Path```
+	* Click ```Edit``` just below that frame
+	* Go to the end of the ```Variavle Value```
+	* Paste the path after the semicolon (```;```). If there is no semi-colon in the end, insert one yourself before pasting.
+	* Open a new Command Prompt and type ```path``` (IMPORTANT: type onlt ```path``` with no spaces,  otherwise you'll be in trouble)
+	* Check that the path ```C:\Program Files\MongoDB\Server\4.0\bin``` is somewhere inside that output or not.
+	* If YES, continue. If NO,  [post a messege here](https://gitter.im/SERlyInterns/web-dev-application-form?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
 
-
+	
 ### 2. 

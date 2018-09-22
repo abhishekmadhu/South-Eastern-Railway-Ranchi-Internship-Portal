@@ -16,6 +16,18 @@
         <!--filter: blur(4px);-->
 }
 
+#blur-bg:hover button{
+    background: #075293;
+    transition: 1s ease-in;
+    transform: scale(1.45);
+    transition: 1s ease-in-out;
+    /*color: red;*/
+}
+
+button {
+    transition: 1s ease-in-out;
+}
+
 .white{
     color:white;
 }
@@ -34,6 +46,7 @@
 <!--}-->
 
 .login-area {
+    transition: 2s cubic-bezier(1, -1.26, 0, 2.67);
     margin-left:12%;
     margin-top:3%;
     margin-bottom:3%;
@@ -44,6 +57,11 @@
     min-width: 450px;
     background: darkslateblue;
     padding: 15px;
+}
+
+.login-area:hover {
+    background: #11045e;
+    transition: 2s cubic-bezier(1, -1.26, 0, 2.67);
 }
 
 #welcome{

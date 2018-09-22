@@ -9,10 +9,15 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!--<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"/>-->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}"/>
+    <link rel="stylesheet" href="../static/css/home.css"/>
+
     <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
     <script type="text/javascript" >
         function preventBack(){window.history.forward();}
@@ -20,13 +25,15 @@
         window.onunload=function(){null};
     </script>
 
-
+  
 </head>
 <body>
 
+
+
 <div id="box">
     <div id="a">
-        <img src="https://i.imgur.com/hMXpmbC.jpg" width="100%">
+        <img src="https://lh3.googleusercontent.com/fUSwsECX674tAOPCi5nAIMv2_ljtLvrjiSGXCrsYKDU_0cr9VDF-k1v7G47VN9gnqNLKrZrDdKCvB7E5r6QhNIPMqqHCHzRYrLaDpL_2x7NEkA28Cz1dCVfOOJ7reeAJIvGVUiwtrvpf58llfp-drH8KX9lBrboslxqx6UVS7dINyf4OK0ETkeOinJknGbo_UFsihUCctcQIvE7Yl0jcdoNz1tH8YJbZZypnwd-C-vxTdOS4J3LXsxezYaonaxYbQ9ECcgxPNndtEtJKFQEwJGGl97PClMAkr9aGWQEvHjWMxOFUwJ9vSVavxyy0dN-nuDqh7hRH-V7W80kOx56XpFHlMfpPCmM7m6R-Jt9aNd_xEYh3d7GjDXVlrTOlJ3miSyGWtoYISy3dN-8jxdrstr9IaPlx0IU83E1JI5H1hNCOa-U53aU_KqqW6LPAPhmpGQKSSOhu3JnGlBPdJMY_oY17soRK0XMJDeitgbdhNRlBhAA7vYLvoFsV-PQaU3QtjdEehyjMVpA4pNNB-_PnZu2hWhIj_TPbYWZRP2mLKn0I4B6hWXsQLmCqFK6j7flaJYB0cOaytILGcEy-xPlYFBxSDMvYNCTK9IXnmbnsLCe2nPz_SuVJdNvg_ZeObw=w1346-h142-no" width="100%">
     </div>
 
     <div id="b" style="overflow:hidden;background:white;"> </div>
@@ -51,6 +58,31 @@
 
         <!-- The main form, do not touch -->
         <div class="login-area">
+            
+            <!-- ---------- MODERN LOGIN------------------------ -->
+            <!-- <div class="optin-container">
+                <div class="cta">Log In</div>
+
+                    
+                    <form class="form hidden" id="login-form">
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" class="form-control" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password *</label>
+                        <input type="password" id="password" class="form-control" name="password" required pattern=".{8,15}">
+                    </div>
+                    
+                    <input type="submit" class="btn btn-default" id="submit-button" value="Log In">
+                    
+                </form> 
+                
+            </div> -->
+            <!-- ------------- End of Modern LogIN----------------- -->
+
             <div class="white" style="">
                 <i class="fas fa-user-circle" style="font-size:200%; padding:5px;"></i>
                 <p class="login-head" style="float:left;">Login</p>
@@ -80,11 +112,15 @@
 
                 </div>
             </div>
+
+
+
+
+
         </div>
     </div>
 
     <!--<div class="container">-->
-
         <div id="second-banner" class="row">
             <div class="col box-area" id="announcement-area">
                 <h1>Announcements</h1>
@@ -119,7 +155,6 @@
                     </ul>
                 </div>
             </div>
-
     <!--</div>-->
 
     </div>

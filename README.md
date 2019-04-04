@@ -2,6 +2,7 @@
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKxpa20O0eQmEZS5nBeWRO_0FdO8RfhwM8-vSn1lFEBCXklXKVww" alt="Logo">
 
 ##### This is a small application form that takes the Registration data inputs and saves it in MongoDB.
+##### It is highly scaled-DOWN for various issues and policies of the organisation.
 
 
 For anything regarding the internship and the project, [Gitter here](https://gitter.im/SERlyInterns/web-dev-application-form?utm_source=share-link&utm_medium=link&utm_campaign=share-link) with the wonderful developers, and me :D
